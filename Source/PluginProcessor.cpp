@@ -166,7 +166,8 @@ bool VstLearningSimpleEQAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* VstLearningSimpleEQAudioProcessor::createEditor()
 {
-	return new juce::GenericAudioProcessorEditor(*this);
+    //return new VstLearningSimpleEQAudioProcessor(*this);
+    return new juce::GenericAudioProcessorEditor(*this);
 }
 
 //==============================================================================
@@ -188,7 +189,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout
     juce::AudioProcessorValueTreeState::ParameterLayout  layout;
 
     layout.add(std::make_unique<juce::AudioParameterFloat>("LowCut Freq", "LowCut Freq",
-        juce::NormalisableRange(20.f, 20000.f, 1.f, 1.f), 20.f));
+        juce::NormalisableRange(20.f, 20000.f, 0.f, 1.f), 20.f));
 
     layout.add(std::make_unique<juce::AudioParameterFloat>("HighCut Freq", "HighCut Freq",
         juce::NormalisableRange(20.f, 20000.f, 1.f, 1.f), 20000.f));
